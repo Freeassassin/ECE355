@@ -125,18 +125,22 @@
 \begin{center}
 
     \begin{tikzpicture}[ultra thick]
-        \node at (0,-0.25) {$0$};
+        \node at (0,-0.5) {$0$};
         \draw [thin] (-1,0) -- (5,0);
+        \draw (-1,0) -- (0,0);
         \draw (0,0) -- (1,1);
-        \node at (1,-0.25) {$\alpha$};
+        \node at (1,-0.5) {$\alpha$};
         \draw (1,1) -- (3,1);
-        \node at (3,-0.25) {$1$};
+        \node at (3,-0.5) {$1$};
         \draw (3,1) -- (4,0);
-        \node at (4,-0.25) {$1+\alpha$};
+        \draw (4,0) -- (5,0);
+        \node at (4,-0.5) {$1+\alpha$};
 
         \begin{scope}[thin]
-            \draw (1,0) -- (1,1);
-            \draw (3,0) -- (3,1);
+            \draw (0,0) -- (0,-0.25);
+            \draw (1,0) -- (1,-0.25);
+            \draw (3,0) -- (3,-0.25);
+            \draw (4,0) -- (4,-0.25);
         \end{scope}
     \end{tikzpicture}
 \end{center}
@@ -157,7 +161,7 @@ Current discontinuities of $ \frac{dy}{d t} $ are at $ t = 0, \alpha, 1, 1 + \al
     &=& \int_{0}^{\infty}  e^{-3\tau} (u(t-3-\tau) - u(t-5-\tau)) \,d\tau
 \end{eqnarray}
 
-The above $(u(t-3-\tau) - u(t-5-\tau))$ is only non-zero when $ (t-5) < \tau < (t-3) $.
+The above $(u(t-3-\tau) - u(t-5-\tau))$ term is only non-zero when $ (t-5) < \tau < (t-3) $.
 
 \begin{eqnarray}
     y(t) &=& \int_{0}^{t-3}  e^{-3\tau} \,d\tau = \frac{1-e^{-3(t-3)}}{3}  \text{ for } 3 < t \leq 5 \\
@@ -176,19 +180,36 @@ The above $(u(t-3-\tau) - u(t-5-\tau))$ is only non-zero when $ (t-5) < \tau < (
 
 \subsection*{Part b)}
 
+
+
+\begin{eqnarray}
+    \frac{d x}{d t} &=& \delta(t-3) - \delta(t-5) \\
+    g(t) &=& \frac{d x}{d t} * h(t) = e^{-3(t-3)}u(t-3) - e^{-3(t-5)}u(t-5)
+\end{eqnarray}
+
+\begin{equation}
+    g(t)=
+    \begin{cases}
+        0                     & \text{if } -\infty < t \leq 3 \\
+        e^{-3(t-3)}           & \text{if } 3 < t \leq 5       \\
+        (e^{-6}-1)e^{-3(t-5)} & \text{if } 5 < t \leq \infty  \\
+    \end{cases}
+\end{equation}
+
 \subsection*{Part c)}
 
-\section{}
+If we compute the derivative of $ y(t) $ we get:
 
-\section{}
+\begin{equation}
+    y(t)=
+    \begin{cases}
+        0                     & \text{if } -\infty < t \leq 3 \\
+        e^{-3(t-3)}           & \text{if } 3 < t \leq 5       \\
+        (e^{-6}-1)e^{-3(t-5)} & \text{if } 5 < t \leq \infty  \\
+    \end{cases}
+\end{equation}
 
-\section{}
-
-\section{}
-
-\section{}
-
-\section{}
+\[\therefore \ y(t) = g(t)\]
 
 
 \end{document}
