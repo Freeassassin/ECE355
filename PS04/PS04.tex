@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{titlesec}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{listings}
+
+% Customization -------
+
+% Paper size, margin
+\usepackage[letterpaper,top=1.5cm,bottom=1.5cm,left=1.75cm,right=1.75cm,heightrounded]{geometry}
+
+% line height
+\renewcommand{\baselinestretch}{1.15} % line space
+
+% Paragraph indentation 
+\setlength{\parindent}{0pt} % no indent
+
+% Paragraph spacing
+\setlength{\parskip}{0.8em} % space between paragraphs
+
+% Section number formatting
+\titleformat{\section}[hang]{\bfseries}{Problem \thesection\ }{0pt}{}
+
+
+% Equation numbering per section
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+
+% Graphics path
+\graphicspath{ {./images/} }
+
+% --------------------
+
+\title{ECE355: Problem Set 04}
+\author{Farbod Mohammadzadeh\\
+    (1008360462)}
+\date{13 October 2023}
+\begin{document}
+\Large
+\maketitle
+\newpage
+\section{}
+\subsection*{Requirements}
+\begin{align}
+    \text{Causal} & : \quad h[n] = 0 \quad \forall n < 0 \\
+    \text{Stable} & : \quad \sum_{n=-\infty}^{\infty} |h[n]| < \infty
+\end{align}
+\subsection*{\underline{Part a)}}
+Causal: Not causal due to the $u[n+2]$ term which makes the function non-zero for $n < -2$. 
+
+Stable: Here $(0.8)^n$ goes to $0$ as $n$ goes to $\infty$. Which makes the sum finite and therefore stable.
+
+$\therefore$ \textbf{Stable and Not Causal}
+\subsection*{\underline{Part b)}}
+
+Causal: Not causal due to the $u[3-n]$ term which makes the function non-zero for $n > 3$.
+
+Stable: Not stable due to the $5^n$ term which makes the sum infinite.
+
+$\therefore$ \textbf{Not Stable and Not Causal}
+\subsection*{\underline{Part c)}}
+
+Causal: Not causal due to the $u[1-n]$ term which makes the function non-zero for $n < -1$.
+
+Stable: Stable since $(-\frac{1}{2})^n$ would go to $0$ and $\sum_{n=-\infty}^{\infty} (1.01)^n$ is finite.
+
+\newpage
+\section{}
+\subsection*{\underline{Part a)}}
+
+\subsection*{\underline{Part b)}}
+
+\subsection*{\underline{Part c)}}
+
+\newpage
+\section{}
+\newpage
+\section{}
+\subsection*{\underline{Part a)}}
+
+\subsection*{\underline{Part b)}}
+
+\subsection*{\underline{Part c)}}
+
+\newpage
+\section{}
+\subsection*{\underline{Part a)}}
+
+\subsection*{\underline{Part b)}}
+
+\newpage
+\section{}
+
+\newpage
+\section{}
+
+\end{document}
